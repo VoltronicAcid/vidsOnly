@@ -3,7 +3,7 @@
 // @namespace    https://github.com/VoltronicAcid/
 // @downloadURL  https://github.com/VoltronicAcid/vidsOnly/raw/main/vidsOnly.user.js
 // @version      0.1
-// @description  Set pages on https://sxyprn.com/ to display only videos
+// @description  Remember 'vidsOnly' setting across sessions
 // @author       VoltronicAcid
 // @match        https://sxyprn.com/blog/all/*
 // ==/UserScript==
