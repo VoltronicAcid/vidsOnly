@@ -2,19 +2,24 @@
 // @name         Vids Only
 // @namespace    https://github.com/VoltronicAcid/
 // @downloadURL  https://github.com/VoltronicAcid/vidsOnly/raw/main/vidsOnly.user.js
-// @version      0.1
+// @version      0.2
 // @description  Remember 'vidsOnly' setting across sessions
 // @author       VoltronicAcid
 // @match        https://sxyprn.com/blog/all/*
 // ==/UserScript==
 
 (() => {
-    const vidsOnlyPreference = 'vidsOnly'
+    const settingKey = 'vidsOnly'
     const checkbox = document.querySelector('.vocontainer > input');
-    !checkbox.checked && (window.localStorage.getItem(vidsOnlyPreference) === 'true') && checkbox.click();
-    window.localStorage.setItem(vidsOnlyPreference, checkbox.checked);
-
+    
     checkbox.addEventListener('click', () => {
-        window.localStorage.setItem(vidsOnlyPreference, checkbox.checked);
+        window.localStorage.setItem(settingKey, checkbox.checked.toString());
     })
+
+    // Default to vids only view
+    const currentSetting = window.localStorage.getItem(settingKey) || 'true'
+
+    if (currentSetting !== checkbox.checked.toString()) {
+        checkbox.click()
+    }
 })();
